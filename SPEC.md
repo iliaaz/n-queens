@@ -1,43 +1,56 @@
 # Design spec
 
-> Fill in from the exam prompt before writing code.
-> Rename `solution/` and test files under `tests/unit/` and `tests/integration/`.
+> Practice run: order line total calculator
 
 ## Summary
 
-_What are we building and why?_
+Add a function that calculates the total of an order from line item amounts (in cents).
 
 ## Context
 
-_Existing system, constraints, and anything already decided._
+- Input is a list of integer amounts in cents
+- No persistence or API in scope
 
 ## Must haves
 
-_Required for the feature to be considered done. Build these first._
-
-- [ ]
+- [ ] Sum all line item amounts
+- [ ] Reject empty orders
+- [ ] Reject negative line items
 
 ## Nice to haves
 
-_Desirable but deferrable if time is tight._
-
-- [ ]
+- [ ] _None for this practice run_
 
 ## Won't do
 
-_Explicitly out of scope._
-
--
+- Tax, shipping, currency formatting
+- HTTP API or database
 
 ## Scenarios
 
-_Behaviour in GIVEN / WHEN / THEN form. Include positive and negative cases._
+### Scenario: Valid order total
 
-### Scenario: _
+- **GIVEN** line items `[500, 1200, 300]`
+- **WHEN** the total is calculated
+- **THEN** the result is `2000`
 
-- **GIVEN** _
-- **WHEN** _
-- **THEN** _
+### Scenario: Single line item
+
+- **GIVEN** line items `[750]`
+- **WHEN** the total is calculated
+- **THEN** the result is `750`
+
+### Scenario: Empty order rejected
+
+- **GIVEN** an empty list of line items
+- **WHEN** the total is calculated
+- **THEN** a `ValueError` is raised
+
+### Scenario: Negative line item rejected
+
+- **GIVEN** line items `[100, -50]`
+- **WHEN** the total is calculated
+- **THEN** a `ValueError` is raised
 
 ## Acceptance criteria
 
@@ -50,8 +63,8 @@ _Behaviour in GIVEN / WHEN / THEN form. Include positive and negative cases._
 
 ## Open questions
 
--
+- None
 
 ## Implementation notes
 
--
+- Public API: `calculate_total(items: list[int]) -> int`

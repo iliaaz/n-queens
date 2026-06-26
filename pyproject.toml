@@ -1,5 +1,5 @@
 [project]
-name = "coding-exam-solution"
+name = "order-totals"
 version = "0.1.0"
 description = "Template for AI-assisted coding exams"
 readme = "README.md"
@@ -11,7 +11,7 @@ requires = ["hatchling>=1"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["solution"]
+packages = ["order_totals"]
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.9", "ty>=0.0", "pre-commit>=4"]
